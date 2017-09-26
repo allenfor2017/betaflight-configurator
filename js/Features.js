@@ -20,7 +20,7 @@ var Features = function (config) {
         {bit: 14, group: 'rxMode', mode: 'select', name: 'RX_MSP'},
         {bit: 15, group: 'rssi', name: 'RSSI_ADC'},
         {bit: 16, group: 'other', name: 'LED_STRIP'},
-        {bit: 17, group: 'other', name: 'DISPLAY', haveTip: true}
+        {bit: 17, group: 'other', name: 'DISPLAY', haveTip: true},
     ];
 
     if (!semver.gte(config.apiVersion, "1.33.0")) {
@@ -72,7 +72,7 @@ var Features = function (config) {
 
         if (semver.gte(CONFIG.apiVersion, "1.20.0")) {
             features.push(
-                {bit: 18, group: 'other', name: 'OSD'},
+                {bit: 18, group: 'osd', name: 'OSD'},
                 {bit: 24, group: 'other', name: 'VTX'}
             );
         }

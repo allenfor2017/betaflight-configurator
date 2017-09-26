@@ -464,7 +464,6 @@ TABS.configuration.initialize = function (callback, scrollPosition) {
             'Indian GAGAN'
         ];
 
-
         var gps_protocol_e = $('select.gps_protocol');
         for (var i = 0; i < gpsProtocols.length; i++) {
             gps_protocol_e.append('<option value="' + i + '">' + gpsProtocols[i] + '</option>');
@@ -475,6 +474,7 @@ TABS.configuration.initialize = function (callback, scrollPosition) {
         });
 
         gps_protocol_e.val(GPS_CONFIG.provider);
+
 
         $('input[name="gps_auto_baud"]').prop('checked', GPS_CONFIG.auto_baud == 1);
         $('input[name="gps_auto_config"]').prop('checked', GPS_CONFIG.auto_config == 1);
@@ -512,6 +512,29 @@ TABS.configuration.initialize = function (callback, scrollPosition) {
         });
 
         gps_ubx_sbas_e.val(GPS_CONFIG.ublox_sbas);
+
+
+        var OSDtypes = [
+            'none',
+            'MAX7456',
+            'MSP',
+            'RunCam Device'
+          ];
+
+        var osd_e = $('select.osd_device').empty();
+        for (var i = 0; i < OSDtypes.length; i++) {
+          osd_e.append('<option value="' + i + '">' + OSDtypes[i] + '</option>');
+        }
+
+        osd_e.change(function () {
+          OSD.data.device = parseInt($(this).val());
+          MSP.promise(MSPCodes.MSP_SET_OSD_CONFIG, OSD.msp.encodeOther())
+          .then(function() {
+              updateOsdView();
+          });
+        });
+        // select current osd device
+        osd_e.val(OSD.data.device);
 
 
         // generate serial RX
@@ -753,6 +776,14 @@ TABS.configuration.initialize = function (callback, scrollPosition) {
             }
         }
 
+        function checkUpdateOSDControls() {
+            if (FEATURE_CONFIG.features.isEnabled('OSD')) {
+                $('.osdSettings').show();
+            } else {
+                $('.osdSettings').hide();
+            }
+        }
+
         function checkUpdate3dControls() {
             if (FEATURE_CONFIG.features.isEnabled('3D')) {
                 $('._3dSettings').show();
@@ -790,6 +821,10 @@ TABS.configuration.initialize = function (callback, scrollPosition) {
                 case '3D':
                     checkUpdate3dControls();
                     break;
+
+                case 'OSD':
+                    checkUpdateOSDControls();
+                break;
                     
                 default:
                     break;
@@ -823,6 +858,7 @@ TABS.configuration.initialize = function (callback, scrollPosition) {
         checkShowSpiRxBox();
         checkUpdateGpsControls();
         checkUpdate3dControls();
+        checkUpdateOSDControls();
 
         if (self.SHOW_OLD_BATTERY_CONFIG) {
             checkUpdateVbatControls();

@@ -218,6 +218,7 @@ var OSD = OSD || {};
 // parsed fc output and output to fc, used by to OSD.msp.encode
 OSD.initData = function() {
   OSD.data = {
+    device: null,
     video_system: null,
     unit_mode: null,
     alarms: [],
@@ -227,7 +228,8 @@ OSD.initData = function() {
     last_positions: {},
     preview_logo: true,
     preview: [],
-    tooltips: []
+    tooltips: [],
+    display_size: { x: 0, y: 0, total: 0 }
   };
 };
 OSD.initData();
@@ -874,6 +876,9 @@ OSD.msp = {
   },
   encodeOther: function() {
     var result = [-1, OSD.data.video_system];
+    if (OSD.data.state.haveOsdFeature && semver.gte(CONFIG.apiVersion, "1.36.0")) {
+        result.push8(OSD.data.device);
+    }
     if (OSD.data.state.haveOsdFeature && semver.gte(CONFIG.apiVersion, "1.21.0")) {
       result.push8(OSD.data.unit_mode);
       // watch out, order matters! match the firmware

@@ -120,6 +120,22 @@
     line-height: 20px;
 }
 
+.tab-configuration .osd .line {
+    clear: left;
+}
+
+.tab-configuration .osd select {
+    float: left;
+    width: 100px;
+    height: 20px;
+    margin: 0 10px 5px 0;
+    border: 1px solid silver;
+}
+
+.tab-configuration .osd span {
+    line-height: 20px;
+}
+
 .tab-configuration .current .checkbox {
     margin-top: 0px;
     float: left;
@@ -272,6 +288,11 @@
     margin-bottom: 10px;
 }
 
+.tab-configuration .osd .gui_box, .tab-configuration .other .gui_box {
+    float: left;
+    margin-bottom: 10px;
+}
+
 .tab-configuration .current .gui_box {
     float: left;
 }
@@ -327,6 +348,10 @@
 
 
 .tab-configuration .gps td:nth-child(2) {
+    width: 38px;
+}
+
+.tab-configuration .osd td:nth-child(2) {
     width: 38px;
 }
 
@@ -505,7 +530,7 @@
     width: 100%;
 }
 
-.tab-configuration .gpsSettings .note {
+.tab-configuration .gpsSettings .osdSettings .note {
     margin-top: 10px; 
 }
 
@@ -533,6 +558,9 @@
         float: left;
     }
     .tab-configuration .gps .gui_box, .tab-configuration .other .gui_box {
+        float: left;
+    }
+    .tab-configuration .osd .gui_box, .tab-configuration .other .gui_box {
         float: left;
     }
     .tab-configuration .current .gui_box {

@@ -141,6 +141,23 @@
     line-height: 20px;
 }
 
+.block.osd {
+    width: 185px;
+    margin-bottom: 10px;
+}
+
+.block.osd .fields {
+    padding: 5px 5px 3px 5px;
+}
+
+.block.osd dt {
+    float: left;
+    width: 85px;
+    height: 20px;
+    margin-bottom: 2px;
+    line-height: 20px;
+}
+
 .block.instruments {
     width: 285px;
     align-content: center;

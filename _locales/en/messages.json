@@ -924,7 +924,7 @@
         "message": "IRC Tramp"
     },
     "portsFunction_RUNCAM_SPLIT_CONTROL": {
-        "message": "RunCam Split"
+        "message": "RunCam Device"
     },
     "pidTuningUpgradeFirmwareToChangePidController": {
         "message": "<span style=\"color: red\">Changing PID controller disabled - you can change it via the CLI.</span>  You have firmware with API version <span style=\"color: red\">$1</span>, but this functionality requires requires <span style=\"color: #ffbb00\">$2</span>."
@@ -2718,5 +2718,14 @@
     },
     "modeCameraChangeMode": {
         "message": "CAMERA CHANGE MODE"
+    },
+    "configurationOSD": {
+        "message": "OSD"
+    },
+    "configurationOSDHelp": {
+        "message": "<strong>Note:</strong> Remember to configure a Serial Port (via Ports tab) when using OSD feature."
+    },
+    "configurationOSDDevice": {
+        "message": "Device"
     }
 }

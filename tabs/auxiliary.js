@@ -48,6 +48,10 @@ TABS.auxiliary.initialize = function (callback) {
                 return chrome.i18n.getMessage('modeCameraPower');
             case 34: // BOXCAMERA3
                 return chrome.i18n.getMessage('modeCameraChangeMode');
+            case 37: // BOXCAMERA4
+                return chrome.i18n.getMessage('modeCameraStartRecording');
+            case 38: // BOXCAMERA5
+                return chrome.i18n.getMessage('modeCameraStopRecording');
             default:
                 return originalModeName;
         }

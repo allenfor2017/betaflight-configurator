@@ -2719,6 +2719,12 @@
     "modeCameraChangeMode": {
         "message": "CAMERA CHANGE MODE"
     },
+    "modeCameraStartRecording": {
+        "message": "CAMERA START RECORDING"
+    },
+    "modeCameraStopRecording": {
+        "message": "CAMERA STOP RECORDING"
+    },
     "configurationOSD": {
         "message": "OSD"
     },
